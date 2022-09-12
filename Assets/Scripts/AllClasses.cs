@@ -10,6 +10,8 @@ public class AllClasses : MonoBehaviour
     public Camera cam;
     public Animator playerAnimator;
     public Animations animationsScript;
+    public GameOver gameOverScript;
+    
 
     private void Awake()
     {
@@ -19,5 +21,6 @@ public class AllClasses : MonoBehaviour
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         playerAnimator = GameObject.Find("Neko").GetComponent<Animator>();
         animationsScript = GameObject.Find("GameManager").GetComponent<Animations>();
+        gameOverScript = GameObject.Find("Neko").GetComponent<GameOver>();
     }
 }

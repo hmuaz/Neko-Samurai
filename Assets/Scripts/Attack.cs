@@ -15,7 +15,14 @@ public class Attack : MonoBehaviour
     {
         if (e.inputScript.attacked)
         {
-
+            
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    
 }

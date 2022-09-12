@@ -12,6 +12,7 @@ public class InputD : MonoBehaviour
     public bool rightSide = false;
     public bool leftSide = false;
 
+
     public float upperAnimEndTime = 1f;
     public float attackAnimEndTime = 1f;
 
@@ -66,12 +67,10 @@ public class InputD : MonoBehaviour
             mousePosition = Vector3.zero;
             if (attacked)
             {
-                Debug.Log("attacked");
                 Invoke("TurnAttackedFalse", attackAnimEndTime);
             }
             else if (upperAttack)
             {
-                Debug.Log("Upper Attacked");
                 Invoke("TurnUpperAttackedFalse", upperAnimEndTime);
 
             }

@@ -20,6 +20,16 @@ public class Player : MonoBehaviour
         transform.localScale = new Vector3(direction, transform.localScale.y, transform.localScale.z);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            e.gameOverScript.GameOverF();
+        }
+    }
+
+    
+
 
 
 }

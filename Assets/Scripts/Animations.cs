@@ -19,16 +19,16 @@ public class Animations : MonoBehaviour
 
     }
 
-    public bool AnimatorisPlaying()
-    {
-        return e.playerAnimator.GetCurrentAnimatorStateInfo(0).length > e.playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    //public bool AnimatorisPlaying()
+    //{
+    //    return e.playerAnimator.GetCurrentAnimatorStateInfo(0).length > e.playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-    }
+    //}
 
-    public bool AnimationisPlaying(string stateName)
-    {
-        return AnimatorisPlaying() && e.playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
-    }
+    //public bool AnimationisPlaying(string stateName)
+    //{
+    //    return AnimatorisPlaying() && e.playerAnimator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    //}
 
     
 
