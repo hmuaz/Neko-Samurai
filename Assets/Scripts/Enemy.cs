@@ -35,10 +35,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "ReachUp")
         {
-            Debug.Log("bas");
             if (e.inputScript.upperAttack)
             {
-                Debug.Log("lan");
 
                 enemyScript.EnemyDies();
             }
@@ -47,7 +45,6 @@ public class Enemy : MonoBehaviour
         {
             if (e.inputScript.attacked)
             {
-                Debug.Log("lan");
 
                 enemyScript.EnemyDies();
             }

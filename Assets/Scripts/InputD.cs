@@ -12,6 +12,8 @@ public class InputD : MonoBehaviour
     public bool rightSide = false;
     public bool leftSide = false;
 
+    public bool enemyAndNekoCollision = false;
+
 
     public float upperAnimEndTime = 1f;
     public float attackAnimEndTime = 1f;

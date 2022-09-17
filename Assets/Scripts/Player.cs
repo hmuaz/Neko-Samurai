@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public AllClasses e;
 
+    public int playerHealth = 2;
+
     private void Awake()
     {
         e = GameObject.Find("GameManager").GetComponent<AllClasses>();
@@ -22,10 +24,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
-        {
-            e.gameOverScript.GameOverF();
-        }
+        
     }
 
     
