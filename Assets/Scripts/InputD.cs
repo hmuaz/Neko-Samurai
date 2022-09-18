@@ -11,6 +11,7 @@ public class InputD : MonoBehaviour
     public bool upperAttack = false;
     public bool rightSide = false;
     public bool leftSide = false;
+    public bool canAttack = true;
 
     public bool enemyAndNekoCollision = false;
 
@@ -51,16 +52,23 @@ public class InputD : MonoBehaviour
 
         }
 
-        if (mousePosition.y > 0)
+        if (canAttack)
         {
-            upperAttack = true;
-            attacked = false;
+            if (mousePosition.y > 0)
+            {
+                upperAttack = true;
+                attacked = false;
+            }
+            else if (mousePosition.y < 0)
+            {
+                attacked = true;
+                upperAttack = false;
+                canAttack = false;
+                Invoke("TurnCanAttackTrue", 1f);
+            }
         }
-        else if(mousePosition.y < 0)
-        {
-            attacked = true;
-            upperAttack = false;
-        }
+
+        
         
 
 
@@ -119,6 +127,11 @@ public class InputD : MonoBehaviour
     void TurnUpperAttackedFalse()
     {
         upperAttack = false;
+    }
+
+    void TurnCanAttackTrue()
+    {
+        canAttack = true;
     }
 
 }
