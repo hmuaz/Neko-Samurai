@@ -262,8 +262,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.048906654, y: -0.7947353}
-  m_Size: {x: 0.7271355, y: 3.319194}
+  m_Offset: {x: 0.08858162, y: -0.7947353}
+  m_Size: {x: 0.5995587, y: 3.319194}
   m_Direction: 0
 --- !u!114 &159390634
 MonoBehaviour:
@@ -365,6 +365,7 @@ MonoBehaviour:
   upperAttack: 0
   rightSide: 0
   leftSide: 0
+  enemyAndNekoCollision: 0
   upperAnimEndTime: 0.2
   attackAnimEndTime: 0.2
   mousePosition: {x: 0, y: 0, z: 0}
@@ -480,7 +481,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008710623, y: 0.5693855}
+  m_Offset: {x: 0.018051624, y: 0.5693855}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -491,7 +492,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.029802, y: 2.138771}
+  m_Size: {x: 4.191248, y: 2.138771}
   m_EdgeRadius: 0
 --- !u!4 &259648997
 Transform:
@@ -570,6 +571,8 @@ MonoBehaviour:
   attackDirection: -1
   attackSpeed: 5
   attackVector: {x: 0, y: 0}
+  waitFloat: 1
+  rb: {fileID: 0}
   e: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
@@ -4780,7 +4783,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11360955, y: -0.03824258}
+  m_Offset: {x: -0.06900573, y: -0.03824258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4791,7 +4794,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.9251285, y: 2.6061769}
+  m_Size: {x: 4.193624, y: 2.6061769}
   m_EdgeRadius: 0
 --- !u!4 &1125442176
 Transform:

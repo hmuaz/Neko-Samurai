@@ -34,7 +34,11 @@ public class EnemyBackflipState : EnemyBaseState
         throw new System.NotImplementedException();
     }
 
-    
+    public override void OnTriggerStay2D(EnemyStateManager enemy, Collider2D collision)
+    {
+    }
+
+
 
 
 }

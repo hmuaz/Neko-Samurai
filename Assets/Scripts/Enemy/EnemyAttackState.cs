@@ -37,20 +37,28 @@ public class EnemyAttackState : EnemyBaseState
             }
         }
 
-        if(collision.gameObject.tag == "ReachDown" && enemy.e.inputScript.attacked)
-        {
-            Debug.Log("girdi");
-            if(enemy.attackDirection == -1 && enemy.e.inputScript.rightSide)
-            {
-
-                enemy.e.gameOverScript.GameOverF();
-            }
-            else if(enemy.attackVector.x == 1 && enemy.e.inputScript.leftSide)
-            {
-                enemy.e.gameOverScript.GameOverF();
-            }
-        }
+        
 
         
+    }
+
+    public override void OnTriggerStay2D(EnemyStateManager enemy, Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ReachDown" && enemy.e.inputScript.attacked)
+        {
+            Debug.Log("girdi");
+            if (enemy.attackDirection == -1 && enemy.e.inputScript.rightSide)
+            {
+
+                //enemy.e.gameOverScript.GameOverF();
+                enemy.SwitchState(enemy.DieState);
+            }
+            else if (enemy.attackVector.x == 1 && enemy.e.inputScript.leftSide)
+            {
+                //enemy.e.gameOverScript.GameOverF();
+                enemy.SwitchState(enemy.DieState);
+
+            }
+        }
     }
 }

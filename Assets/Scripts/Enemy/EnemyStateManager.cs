@@ -20,10 +20,14 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyBackflipState BackFlipState = new EnemyBackflipState();
 
     public AllClasses e;
+
+    Enemy enemyScript;
+
     private void Awake()
     {
         e = GameObject.Find("GameManager").GetComponent<AllClasses>();
         rb = GetComponent<Rigidbody2D>();
+        enemyScript = GetComponent<Enemy>();
     }
 
     private void Start()
@@ -59,5 +63,18 @@ public class EnemyStateManager : MonoBehaviour
         yield return new WaitForSeconds(waitFloat);
         SwitchState(AttackState);
         Debug.Log("çalýþ lan");
+    }
+
+    public void DestroyEnemy()
+    {
+        Debug.Log("destroy enemy");
+
+        Destroy(gameObject);
+        e.gameOverScript.GameOverF();
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        currentState.OnTriggerStay2D(this, collision);
     }
 }
