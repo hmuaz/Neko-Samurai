@@ -6,9 +6,12 @@ public class EnemyStateManager : MonoBehaviour
 {
     EnemyBaseState currentState;
 
-    public int attackDirection = -1;
+    public int attackDirection;
     public float attackSpeed = 5f;
     public Vector2 attackVector;
+    public Animator enemyAnimator;
+
+    public bool enemyFlip = false;
 
     public float waitFloat = 1f;
 
@@ -25,6 +28,18 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Awake()
     {
+
+        System.Random rand = new System.Random();
+        if (rand.Next(0, 2) == 0)
+        {
+            attackDirection = 1;
+        }
+        else
+        {
+            attackDirection = -1;
+        }
+
+        enemyAnimator = GetComponent<Animator>();
         e = GameObject.Find("GameManager").GetComponent<AllClasses>();
         rb = GetComponent<Rigidbody2D>();
         enemyScript = GetComponent<Enemy>();
@@ -45,6 +60,10 @@ public class EnemyStateManager : MonoBehaviour
         Debug.Log(attackVector);
 
         currentState.Update(this);
+
+        enemyAnimator.SetBool("EnemyFlip", enemyFlip);
+
+        transform.localScale = new Vector3(attackDirection * -1, transform.localScale.y, transform.localScale.z);
     }
 
     public void SwitchState(EnemyBaseState state)
@@ -67,14 +86,22 @@ public class EnemyStateManager : MonoBehaviour
 
     public void DestroyEnemy()
     {
-        Debug.Log("destroy enemy");
+        rb.constraints = RigidbodyConstraints2D.None;
+        rb.isKinematic = true;
+        gameObject.active = false;
 
-        Destroy(gameObject);
-        e.gameOverScript.GameOverF();
+
     }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         currentState.OnTriggerStay2D(this, collision);
     }
+
+    public void EnemyFliptoIdle()
+    {
+        enemyFlip = false;
+    }
+
+    
 }

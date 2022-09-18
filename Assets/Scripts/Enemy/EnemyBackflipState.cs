@@ -4,8 +4,7 @@ public class EnemyBackflipState : EnemyBaseState
 {
     public override void Enter(EnemyStateManager enemy)
     {
-        Debug.Log("sa");
-
+        enemy.Invoke("EnemyFliptoIdle", enemy.waitFloat);
 
         enemy.rb.velocity = enemy.attackVector * Vector2.left *10;
 
@@ -31,11 +30,12 @@ public class EnemyBackflipState : EnemyBaseState
 
     public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collision)
     {
-        throw new System.NotImplementedException();
+
     }
 
     public override void OnTriggerStay2D(EnemyStateManager enemy, Collider2D collision)
     {
+
     }
 
 

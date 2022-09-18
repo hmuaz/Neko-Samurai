@@ -11,10 +11,12 @@ public class AllClasses : MonoBehaviour
     public Animator playerAnimator;
     public Animations animationsScript;
     public GameOver gameOverScript;
+    public EnemyPool enemyPoolScript;
     
 
     private void Awake()
     {
+
         attackScript = GameObject.Find("Neko").GetComponent<Attack>();
         playerScript = GameObject.Find("Neko").GetComponent<Player>();
         inputScript = GameObject.Find("GameManager").GetComponent<InputD>();
@@ -22,5 +24,6 @@ public class AllClasses : MonoBehaviour
         playerAnimator = GameObject.Find("Neko").GetComponent<Animator>();
         animationsScript = GameObject.Find("GameManager").GetComponent<Animations>();
         gameOverScript = GameObject.Find("Neko").GetComponent<GameOver>();
+        enemyPoolScript = GameObject.Find("GameManager").GetComponent<EnemyPool>();
     }
 }

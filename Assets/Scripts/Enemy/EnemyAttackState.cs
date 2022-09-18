@@ -14,9 +14,7 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Update(EnemyStateManager enemy)
     {
-        Debug.Log("lan");
-
-
+        Debug.Log("burdamýsýn lan");
         enemy.rb.velocity = enemy.attackVector;
     }
 
@@ -28,8 +26,10 @@ public class EnemyAttackState : EnemyBaseState
         {
             if (enemy.e.playerScript.playerHealth > 1)
             {
+                enemy.enemyFlip = true;
                 enemy.SwitchState(enemy.BackFlipState);
                 enemy.e.playerScript.playerHealth--;
+
             }
             else if (enemy.e.playerScript.playerHealth <= 1)
             {
@@ -53,7 +53,7 @@ public class EnemyAttackState : EnemyBaseState
                 //enemy.e.gameOverScript.GameOverF();
                 enemy.SwitchState(enemy.DieState);
             }
-            else if (enemy.attackVector.x == 1 && enemy.e.inputScript.leftSide)
+            else if (enemy.attackDirection == 1 && enemy.e.inputScript.leftSide)
             {
                 //enemy.e.gameOverScript.GameOverF();
                 enemy.SwitchState(enemy.DieState);
