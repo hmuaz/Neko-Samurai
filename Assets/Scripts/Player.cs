@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public AllClasses e;
 
     public int playerHealth = 2;
-
+    public int scorInt = 0;
     private void Awake()
     {
         e = GameObject.Find("GameManager").GetComponent<AllClasses>();

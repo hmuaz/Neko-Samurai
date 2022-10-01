@@ -5,7 +5,7 @@ public class EnemyDieState : EnemyBaseState
     
     public override void Enter(EnemyStateManager enemy)
     {
-
+        enemy.e.playerScript.scorInt++;
         enemy.rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         enemy.rb.isKinematic = false;
 
