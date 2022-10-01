@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    EnemyBaseState currentState;
+    public EnemyBaseState currentState;
 
     public int attackDirection;
     public float attackSpeed = 5f;
     public Vector2 attackVector;
     public Animator enemyAnimator;
 
-    public bool enemyFlip = false;
+    public bool enemyDied;
+
 
     public float waitFloat = 1f;
 
@@ -29,15 +30,15 @@ public class EnemyStateManager : MonoBehaviour
     private void Awake()
     {
 
-        System.Random rand = new System.Random();
-        if (rand.Next(0, 2) == 0)
-        {
-            attackDirection = 1;
-        }
-        else
-        {
-            attackDirection = -1;
-        }
+        //System.Random rand = new System.Random();
+        //if (rand.Next(0, 2) == 0)
+        //{
+        //    attackDirection = 1;
+        //}
+        //else
+        //{
+        //    attackDirection = -1;
+        //}
 
         enemyAnimator = GetComponent<Animator>();
         e = GameObject.Find("GameManager").GetComponent<AllClasses>();
@@ -51,17 +52,18 @@ public class EnemyStateManager : MonoBehaviour
 
         currentState.Enter(this);
 
-        attackVector = new Vector2(attackDirection * attackSpeed, 0);
 
     }
 
     private void Update()
     {
-        Debug.Log(attackVector);
+        attackVector = new Vector2(attackDirection * attackSpeed, 0);
+
+        enemyAnimator.SetBool("EnemyDead", enemyDied);
+
 
         currentState.Update(this);
 
-        enemyAnimator.SetBool("EnemyFlip", enemyFlip);
 
         transform.localScale = new Vector3(attackDirection * -1, transform.localScale.y, transform.localScale.z);
     }
@@ -81,27 +83,24 @@ public class EnemyStateManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitFloat);
         SwitchState(AttackState);
-        Debug.Log("çalýþ lan");
     }
 
     public void DestroyEnemy()
     {
+        gameObject.active = false;
         rb.constraints = RigidbodyConstraints2D.None;
         rb.isKinematic = true;
-        gameObject.active = false;
-
-
+        enemyDied = false;
     }
+
+
 
     public void OnTriggerStay2D(Collider2D collision)
     {
         currentState.OnTriggerStay2D(this, collision);
     }
 
-    public void EnemyFliptoIdle()
-    {
-        enemyFlip = false;
-    }
+    
 
     
 }

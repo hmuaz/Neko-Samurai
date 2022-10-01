@@ -8,8 +8,8 @@ public class EnemyDieState : EnemyBaseState
 
         enemy.rb.constraints = RigidbodyConstraints2D.FreezePositionX;
         enemy.rb.isKinematic = false;
-        enemy.rb.gravityScale = 5;
 
+        enemy.enemyDied = true;
 
         enemy.Invoke("DestroyEnemy", 1f);
 

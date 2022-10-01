@@ -14,11 +14,10 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void Update(EnemyStateManager enemy)
     {
-        Debug.Log("burdamýsýn lan");
         enemy.rb.velocity = enemy.attackVector;
     }
 
-    
+
 
     public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collision)
     {
@@ -26,7 +25,6 @@ public class EnemyAttackState : EnemyBaseState
         {
             if (enemy.e.playerScript.playerHealth > 1)
             {
-                enemy.enemyFlip = true;
                 enemy.SwitchState(enemy.BackFlipState);
                 enemy.e.playerScript.playerHealth--;
 
@@ -44,10 +42,9 @@ public class EnemyAttackState : EnemyBaseState
 
     public override void OnTriggerStay2D(EnemyStateManager enemy, Collider2D collision)
     {
-        if (collision.gameObject.tag == "ReachDown" && enemy.e.inputScript.attacked)
+        if (collision.gameObject.tag == "ReachDown" && enemy.e.inputScript.attacked || collision.gameObject.tag == "ReachDown" && enemy.e.inputScript.doubleDownAttack)
         {
-            Debug.Log("girdi");
-            if (enemy.attackDirection == -1 && enemy.e.inputScript.rightSide)
+            if (enemy.attackDirection == -1 && enemy.e.inputScript.rightSide || enemy.e.inputScript.doubleDownAttack)
             {
 
                 //enemy.e.gameOverScript.GameOverF();

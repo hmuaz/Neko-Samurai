@@ -13,7 +13,14 @@ public class Attack : MonoBehaviour
 
     private void Update()
     {
+        e.playerAnimator.SetBool("DoubleDownAttacked", e.inputScript.doubleDownAttack);
+
         if (e.inputScript.attacked)
+        {
+            
+        }
+
+        if (e.inputScript.doubleDownAttack)
         {
             
         }

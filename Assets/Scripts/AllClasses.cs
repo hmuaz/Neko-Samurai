@@ -16,7 +16,6 @@ public class AllClasses : MonoBehaviour
 
     private void Awake()
     {
-
         attackScript = GameObject.Find("Neko").GetComponent<Attack>();
         playerScript = GameObject.Find("Neko").GetComponent<Player>();
         inputScript = GameObject.Find("GameManager").GetComponent<InputD>();

@@ -4,8 +4,6 @@ public class EnemyBackflipState : EnemyBaseState
 {
     public override void Enter(EnemyStateManager enemy)
     {
-        enemy.Invoke("EnemyFliptoIdle", enemy.waitFloat);
-
         enemy.rb.velocity = enemy.attackVector * Vector2.left *10;
 
 
